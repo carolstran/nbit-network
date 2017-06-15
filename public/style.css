@@ -1,0 +1,448 @@
+/* GENERAL */
+
+body {
+    background: #ffb6f5;
+    background: -webkit-linear-gradient(to left, #89fffd, #ffb6f5);
+    background: linear-gradient(to left, #89fffd, #ffb6f5);
+    cursor: default;
+    margin: 0;
+}
+
+h2, h3 {
+    font-family: 'Karma Suture', Helvetica, sans-serif;
+    color: #404041;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin: 0.5em 0 0.5em 0;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+a {
+    -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
+    color: #404041;
+    text-decoration: none;
+    font-family: 'Karma Suture', 'Source Sans Pro', sans-serif;
+}
+
+a:hover {
+    border-bottom-color: transparent;
+    color: #FFF !important;
+}
+
+p {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0 0 2em 0;
+    display: block;
+    font-size: 15px;
+    color: #000;
+}
+
+.button {
+    -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
+    color: #404041;
+    font-family: 'Karma Suture', Helvetica, sans-serif;
+    font-size: 0.8em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    background: none;
+    padding: 5px;
+    margin: 5px;
+    text-transform: uppercase;
+    border: none;
+}
+
+.button:hover {
+    color: #FFF !important;
+}
+
+.error-message {
+    font-style: italic;
+    color: #F00;
+    margin-bottom: 10px;
+}
+
+/* WELCOME COMPONENT */
+
+#welcome-wrapper {
+    z-index: 100000;
+    min-height: 100vh;
+    margin: 0 auto;
+    text-align: center;
+    -webkit-animation: WelcomeGradient 14s ease infinite;
+    -moz-animation: WelcomeGradient 14s ease infinite;
+    animation: WelcomeGradient 14s ease infinite;
+    @-webkit-keyframes WelcomeGradient {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @-moz-keyframes WelcomeGradient {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+    @keyframes WelcomeGradient {
+        0%{background-position:0% 50%}
+        50%{background-position:100% 50%}
+        100%{background-position:0% 50%}
+    }
+}
+
+#logo-large {
+    height: 325px;
+    display: block;
+    margin: auto;
+    padding: 35px 0 15px 0;
+}
+
+/* REGISTRATION AND LOGIN COMPONENTS */
+
+.registration-wrapper {
+    display: block;
+}
+
+#registration-form, .redirect-to, #login-form, .welcome-text, .error-message {
+    text-align: center;
+}
+
+.welcome-text {
+    max-width: 650px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+input {
+    margin: 10px;
+    padding: 0 5px 0 5px;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    background: none;
+    border: solid 1px #404041
+}
+
+textarea {
+    width: 200px;
+    height: 50px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* GENERAL APP */
+
+#logo-small {
+    float: left;
+    height: 55px;
+    padding-left: 10px;
+    padding-top: 7px;
+}
+
+#menu-nav {
+    -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    float: right;
+    font-size: 1.35em;
+    padding-right: 20px;
+    padding-top: 10px;
+}
+
+#menu-nav:hover {
+    color: #FFF !important;
+}
+
+.current-user img {
+    float: right;
+    height: 55px;
+    width: 55px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-top: 5px;
+    border-radius: 50%;
+    border: 2px dashed #404041;
+}
+
+#header {
+    background-color: rgba(183, 186, 222, 0.8);
+    height: 75px;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.header-line {
+    width: 100%;
+    color: none;
+    border: 0.5px solid rgba(183, 186, 222, 0.8);
+}
+
+/* UPLOAD PROFILE PIC MODAL */
+
+.modal-wrapper {
+    overflow-y: auto;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    background: rgba(183, 186, 222, 0.6);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+}
+
+.modal-overlay {
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    top: -10px;
+    left: -10px;
+    right: -9px;
+}
+
+#upload-form {
+    width: 400px;
+    height: 180px;
+    position: relative;
+    background-color: rgb(183, 186, 222);
+    margin: auto;
+    top: 20%;
+    z-index: 2000;
+}
+
+#upload-form input {
+    padding-left: 100px;
+    padding-top: 15px;
+}
+
+#upload-form button {
+    padding-left: 150px;
+    padding-top: 15px;
+}
+
+.close-modal {
+    color: #FFF;
+    font-weight: lighter;
+    text-align: center;
+    position: absolute;
+    width: 2em;
+    top: 5px;
+    right: 0;
+}
+
+#modal-title {
+    text-align: center;
+    padding-top: 25px;
+}
+
+/* MENU MODAL */
+
+#menu-wrapper {
+    width: 400px;
+    height: 340px;
+    position: relative;
+    background-color: rgb(183, 186, 222);
+    margin: auto;
+    top: 20%;
+    z-index: 2000;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#menu-wrapper a {
+    border: none;
+}
+
+#menu-title {
+    padding-top: 25px;
+    padding-bottom: 10px;
+}
+
+.modal-line {
+    border: 0.5px dotted #FFF;
+}
+
+/* PROFILE */
+
+.user-profile-pic {
+    display: inline-block;
+    padding: 20px;
+}
+
+.user-profile-pic img {
+    max-height: 300px;
+    max-width: 300px;
+    border-radius: 15%;
+    border: solid 3px rgba(183, 186, 222, 0.8);
+}
+
+.user-info {
+    display: inline-block;
+    padding: 20px;
+    vertical-align: top;
+}
+
+/* FRIENDS PAGE */
+
+.selector-wrapper {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 20px 0;
+}
+
+#friend-type-selector {
+    -webkit-appearance: button;
+    -webkit-border-radius: 2px;
+    -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    -webkit-padding-end: 20px;
+    -webkit-padding-start: 2px;
+    -webkit-user-select: none;
+    background-image: url(http://i62.tinypic.com/15xvbd5.png), -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+    background-image: url(http://i62.tinypic.com/15xvbd5.png), -o-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+    background-image: url(http://i62.tinypic.com/15xvbd5.png), linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    border: 1px solid #AAA;
+    color: #555;
+    font-family: 'Karma Suture', sans-serif;
+    text-transform: uppercase;
+    font-size: inherit;
+    margin: 20px;
+    overflow: hidden;
+    padding: 5px 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 250px;
+}
+
+.page-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+/* FRIENDS AND ONLINE NOW */
+
+#onlinenow-title {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#online-users {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.user-image {
+    padding: 20px 20px 0 20px;
+    display: inline-block;
+}
+
+.user-image img {
+    max-height: 150px;
+    max-width: 150px;
+    border-radius: 15%;
+    border: solid 3px rgba(183, 186, 222, 0.8);
+}
+
+.user-name {
+    text-align: center;
+}
+
+/* ONLINE NOW */
+
+#noone-online-message {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* CHAT */
+
+#chat-wrapper {
+    display: block;
+    max-width: 400px;
+    margin: 20px;
+}
+
+#chat-wrapper a {
+    border: none;
+}
+
+.chat-name, .chat-time {
+    display: inline;
+}
+
+.chat-time {
+    padding-left: 10px;
+    font-style: italic;
+    color: #A9A9A9;
+
+}
+
+.chat-image {
+    height: 75px;
+    width: 75px;
+    border-radius: 15%;
+    border: solid 3px rgba(183, 186, 222, 0.8);
+    display: inline-block;
+    vertical-align: top;
+}
+
+.chat-line {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 20px;
+}
+
+.chat-content {
+    margin-top: 5px;
+}
+
+#chat-title {
+    text-align: center;
+    margin: 20px 0 50px;
+}
+
+#overall-chat-wrapper {
+    margin: auto;
+    width: 500px;
+}
+
+#chat-input-wrapper {
+    margin: 20px;
+}
+
+.chat-textarea {
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 30px;
+    width: 390px;
+}
+
+#send-button {
+    display: inline-block;
+    vertical-align: top;
+}
+
+/* FONTS */
+
+@font-face {
+    font-family: "Karma Suture";
+    src: url("KARMASUT.eot?") format("eot");
+    font-weight: normal;
+    font-style: normal;
+}
