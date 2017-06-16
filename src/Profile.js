@@ -1,5 +1,6 @@
 import React from 'react';
 import {ProfilePic} from './ProfilePic';
+import {ProfilePicUpload} from './ProfilePicUpload';
 import {Bio} from './Bio';
 import {EditBio} from './EditBio';
 import {App} from './App';
@@ -19,7 +20,7 @@ export class Profile extends React.Component {
         return (
             <div className="profile-wrapper">
                 <div className="user-profile-pic">
-                    <ProfilePic profilePicUrl={this.props.profilePicUrl} />
+                    <ProfilePic profilePicUrl={this.props.profilePicUrl} onClick={this.props.openProfilePicUpload} />
                 </div>
                 <div className="user-info">
                     <div className="full-name">
