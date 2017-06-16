@@ -15,10 +15,26 @@ export class Chat extends React.Component {
         axios.get('/chatMessages')
         .then((res) => {
             this.setState(res.data);
+            let randomSentence = this.giveRandomSentence();
             this.props.socket.on('updateChat', (chatMessages) => {
-                this.setState({ chatMessages: chatMessages })
+                this.setState({ chatMessages: chatMessages, randomSentence })
             });
         });
+    }
+    giveRandomSentence() {
+        const welcomeSentences = [
+            `What's happening on your side of the world?`,
+            `Will you be attending the conference in July?`,
+            `What's on your mind?`,
+            `Any accomplishments you'd like to share today?`,
+            `What technical innovations are you obsesssing over?`
+        ];
+        function getRandomNumber(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min)) + min;
+        };
+        return welcomeSentences[getRandomNumber(0, welcomeSentences.length)];
     }
     keyDown(e) {
         if (e.keyCode == 13) {
@@ -33,10 +49,10 @@ export class Chat extends React.Component {
                 firstName: this.props.firstName,
                 lastName: this.props.lastName,
                 profilePicUrl: this.props.profilePicUrl,
-                // timestamp: new Date().toLocaleString(),
                 content: this.state.message
             };
                 this.props.socket.emit('chat', messageData);
+                this.state.message = '';
                 this.setState({ content: this.state.message });
             } else {
                 return;
@@ -53,7 +69,7 @@ export class Chat extends React.Component {
             chatMessages = this.state.chatMessages.map((chatMessage) => {
                 return (
                     <div id="chat-wrapper">
-                        <Link to={`/users/${chatMessage.id}`}>
+                        <Link to={`/users/${chatMessage.id}/`}>
                             <img className="chat-image" src={chatMessage.profilePicUrl || "./public/assets/invader.png"} />
                         </Link>
                         <div className="chat-line">
@@ -70,13 +86,15 @@ export class Chat extends React.Component {
         }
 
         return (
-            <div id="overall-chat-wrapper">
-            <h2 id="chat-title">Welcome to our community chat.<br /> What's on your mind?</h2>
-            {chatMessages}
-            <div id="chat-input-wrapper">
-                <textarea className="chat-textarea" name="message" value={this.state.message} onChange={this.handleChange} onKeyDown={this.keyDown} />
-                <button id="send-button" className="button" onClick={this.submitMessage}>&gt; SEND</button>
-            </div>
+            <div>
+                <h2 id="chat-title">Hey {this.props.firstName}!<br /> Welcome to our community chat.<br /><br /> {this.state.randomSentence}</h2>
+                <div id="overall-chat-wrapper">
+                    {chatMessages}
+                    <div id="chat-input-wrapper">
+                        <textarea className="chat-textarea" name="message" value={this.state.message} onChange={this.handleChange} onKeyDown={this.keyDown} />
+                        <button id="send-button" className="button" onClick={this.submitMessage}>&gt; SEND</button>
+                    </div>
+                </div>
             </div>
         )
     }

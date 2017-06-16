@@ -375,7 +375,7 @@ textarea {
 
 #chat-wrapper {
     display: block;
-    max-width: 400px;
+    max-width: 500px;
     margin: 20px;
 }
 
@@ -425,6 +425,7 @@ textarea {
 
 #chat-input-wrapper {
     margin: 20px;
+    padding-top: 15px;
 }
 
 .chat-textarea {
