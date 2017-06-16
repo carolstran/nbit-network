@@ -30,7 +30,7 @@ export class ProfilePicUpload extends React.Component {
     render() {
         return (
             <div className="modal" className="modal-wrapper">
-                <div className="modal-overlay"></div>
+                <div className="modal-overlay" onClick={() => {this.props.closeModal()}}></div>
                 <div id="upload-form">
                     <p className="close-modal" onClick={() => {this.props.closeModal()}}>X</p>
                     <h2 id="modal-title">Change Your Profile Pic</h2>

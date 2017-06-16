@@ -17,7 +17,7 @@ export class MenuModal extends React.Component {
     render() {
         return (
             <div className="modal" className="modal-wrapper">
-                <div className="modal-overlay"></div>
+                <div className="modal-overlay" onClick={() => {this.props.closeModal()}}></div>
                 <div id="menu-wrapper">
                     <p className="close-modal" onClick={() => {this.props.closeModal()}}>X</p>
                     <h2 id="menu-title">Menu</h2>
