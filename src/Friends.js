@@ -39,7 +39,7 @@ export class Friends extends React.Component {
                     <div className="single-friend">
                         <Link to={`/users/${friend.id}/`}>
                         <div className="user-image">
-                            <img src={friend.profile_pic_url || "./public/assets/invader.png"} />
+                            <img src={friend.profile_pic_url || "/public/assets/invader.png"} />
                         </div>
                         <h3 className="user-name">{friend.first_name} {friend.last_name}</h3>
                         </Link>

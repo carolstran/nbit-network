@@ -89,7 +89,6 @@ server.listen(8080, function() {
 });
 
 // SOCKET
-
 io.on('connection', function(socket) {
     console.log(`socket with the id ${socket.id} is now connected`);
 

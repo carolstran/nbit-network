@@ -23,12 +23,12 @@ export class OnlineNow extends React.Component {
                 {this.state.onlineUsers && this.state.onlineUsers.map(user => {
                     return (
                         <div id="online-users" className="single-user">
-                        <Link to={`/users/${user.id}/`}>
-                        <div className="user-image">
-                        <img src={user.profile_pic_url || "./public/assets/invader.png"} />
-                        </div>
-                        <h3 className="user-name">{user.first_name} {user.last_name}</h3>
-                        </Link>
+                            <Link to={`/users/${user.id}/`}>
+                            <div className="user-image">
+                                <img src={user.profile_pic_url || "/public/assets/invader.png"} />
+                            </div>
+                            <h3 className="user-name">{user.first_name} {user.last_name}</h3>
+                            </Link>
                         </div>
                     )
                 })}
