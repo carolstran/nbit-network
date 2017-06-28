@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('../config/db');
+const toS3 = require('../config/toS3');
 const multer = require('multer');
 
 // MULTER MIDDLEWARE
@@ -41,16 +42,23 @@ router.route('/uploadFile')
         req.session.user.profilePicUrl = file;
 
         if (req.file) {
-            db.uploadProfilePic(file, req.session.user.id).then(function() {
-                res.json({
-                    success: true,
-                    id: req.session.user.id,
-                    profilePicUrl: req.session.user.profilePicUrl
+            toS3(req.file).then(function() {
+                db.uploadProfilePic(file, req.session.user.id).then(function() {
+                    res.json({
+                        success: true,
+                        id: req.session.user.id,
+                        profilePicUrl: req.session.user.profilePicUrl
+                    });
+                }).catch(function(err) {
+                    console.log('Error uploading profile pic', err);
+                    res.json({
+                        sucess: false
+                    });
                 });
             }).catch(function(err) {
-                console.log('Error uploading profile pic', err);
+                console.log('Error uploading file to S3', err);
                 res.json({
-                    sucess: false
+                    success: false
                 });
             });
         } else {
