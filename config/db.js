@@ -72,7 +72,7 @@ function uploadProfilePic(file, id) {
     return db.query(q, params)
     .then(function(result) {
         result.rows.forEach(row => {
-            row.profile_pic_url = 'https://s3.amazonaws.com/nbitnetwork/' + row.profile_pic_url;
+            row.profile_pic_url = 'https://s3.amazonaws.com/nbit-network/' + row.profile_pic_url;
         });
         return result;
     }).catch(function(err) {

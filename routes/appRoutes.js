@@ -42,7 +42,7 @@ router.route('/uploadFile')
         req.session.user.profilePicUrl = file;
 
         if (req.file) {
-            toS3(req.file).then(function() {
+            toS3.makeS3Request(req, res, function(result) {
                 db.uploadProfilePic(file, req.session.user.id).then(function() {
                     res.json({
                         success: true,
@@ -54,11 +54,6 @@ router.route('/uploadFile')
                     res.json({
                         sucess: false
                     });
-                });
-            }).catch(function(err) {
-                console.log('Error uploading file to S3', err);
-                res.json({
-                    success: false
                 });
             });
         } else {
