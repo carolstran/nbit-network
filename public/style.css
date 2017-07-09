@@ -447,3 +447,12 @@ textarea {
     font-weight: normal;
     font-style: normal;
 }
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width:0px) and (max-width:720px) {
+    #logo-large { height: 750px; padding: 105px 0 15px 0; }
+    h2 { font-size: 2.5em; }
+    input { height: 45px; width: 380px; font-size: 1.8em; }
+    .button { font-size: 1.8em; }
+}
