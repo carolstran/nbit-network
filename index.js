@@ -84,8 +84,8 @@ app.get('*', function(req, res) {
 });
 
 // SERVER
-server.listen(8080, function() {
-    console.log("LISTENING on port 8080");
+server.listen(process.env.PORT || 8080, function() {
+    console.log("Listening on port 8080");
 });
 
 // SOCKET
