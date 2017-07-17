@@ -16,7 +16,7 @@ import {OnlineNow} from './OnlineNow';
 import {Chat} from './Chat';
 
 let elem;
-
+console.log('This is running');
 const loggedOutRouter = (
     <Router history={hashHistory}>
         <Route path="/" component={Welcome}>
