@@ -77,7 +77,8 @@ app.get('/chatMessages', function(req, res) {
 // CATCHALL ROUTE
 app.get('*', function(req, res) {
     if (!req.session.user && req.url != '/welcome') {
-        return res.redirect('/welcome');
+        // return res.redirect('/welcome');
+        res.sendFile(__dirname + '/index.html');
     } else {
         res.sendFile(__dirname + '/index.html');
     }
