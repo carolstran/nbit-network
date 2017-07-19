@@ -38,8 +38,8 @@ router.route('/userProfile')
 router.route('/uploadFile')
 
     .post(uploader.single('file'), function(req, res) {
-        let file = `/uploads/${req.file.filename}`;
-        req.session.user.profilePicUrl = file;
+        let file = `${req.file.filename}`;
+        req.session.user.profilePicUrl = 'https://s3.amazonaws.com/nbit-network/' + file;
 
         if (req.file) {
             toS3.makeS3Request(req, res, function(result) {

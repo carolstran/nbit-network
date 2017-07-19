@@ -39,6 +39,10 @@ function checkAccount(email, password) {
                     throw new Error('Boogus credentials');
                 }
 
+                result.rows.forEach(row => {
+                    row.profile_pic_url = 'https://s3.amazonaws.com/nbit-network/' + row.profile_pic_url;
+                });
+
                 let newObj = {
                     passwordMatch: passwordMatch,
                     userEmail: result.rows[0].email,
@@ -105,6 +109,9 @@ function getOtherUserProfile(id) {
 
     return db.query(q, params)
     .then(function(result) {
+        result.rows.forEach(row => {
+            row.profile_pic_url = 'https://s3.amazonaws.com/nbit-network/' + row.profile_pic_url;
+        });
         return result.rows[0];
     }).catch(function(err) {
         console.log('Error getOtherUserProfile in DB', err);
@@ -220,6 +227,9 @@ function getFriends(id) {
     ];
 
     return db.query(q, params).then(function(results) {
+        results.rows.forEach(row => {
+            row.profile_pic_url = 'https://s3.amazonaws.com/nbit-network/' + row.profile_pic_url;
+        });
         return results.rows;
     }).catch(function(err) {
         console.log('Error getFriends in DB', err);
@@ -236,6 +246,9 @@ function getPendingRequests(id) {
     ];
 
     return db.query(q, params).then(function(results) {
+        results.rows.forEach(row => {
+            row.profile_pic_url = 'https://s3.amazonaws.com/nbit-network/' + row.profile_pic_url;
+        });
         return results.rows;
     }).catch(function(err) {
         console.log('Error getPendingRequests in DB', err);
@@ -247,6 +260,9 @@ function getUsersByIds(onlineUserIds) {
     let q = `SELECT id, first_name, last_name, profile_pic_url FROM users WHERE id IN (${onlineUserIds});`;
 
     return db.query(q).then(function(results) {
+        results.rows.forEach(row => {
+            row.profile_pic_url = 'https://s3.amazonaws.com/nbit-network/' + row.profile_pic_url;
+        });
         return results.rows;
     });
 }
