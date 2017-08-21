@@ -5,4 +5,4 @@ Registered users can upload a profile image, edit their bio as well as manage fr
 
 Technologies: React.js, Node.js, Express.js and PostgreSQL.
 
-Hosted on Heroku. See it live [here](https://nbit-network.herokuapp.com/welcome#/).
+Hosted on [Heroku](https://nbit-network.herokuapp.com/welcome#/).
